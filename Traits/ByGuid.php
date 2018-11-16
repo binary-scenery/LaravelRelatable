@@ -1,7 +1,7 @@
 <?php
 namespace App\Models\Traits ;
 
-// add this trait to any model you want to find by guid
+// add this trait to any models you need to find by guid
 // example usage:
 // $post = Post::byGuid($guid)->first();
 trait ByGuid {

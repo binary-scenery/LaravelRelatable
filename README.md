@@ -1,7 +1,7 @@
 # LaravelRelatable
 
-A snippet to allow resources to link to each other
+Link any resource to any other resource!
 
-Use this package as a master pivot table, attach likes, relate content
+Use these snippets as a master pivot table, to attach likes, comments, related content
 
 NOTE: this package requires that all resources have a 'guid' column that is globally unique

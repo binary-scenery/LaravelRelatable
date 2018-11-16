@@ -32,4 +32,8 @@ trait Relatable {
         return $this->relatable('posts');
     }
 
+    public function related_comments(){
+        return $this->relatable('comments');
+    }
+
 }
