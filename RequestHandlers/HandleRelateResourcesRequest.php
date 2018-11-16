@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\RequestHandlers ;
 
- use App\Models\Relatable;
- use App\Models\PractitionerExperienceCard;
- use App\Models\Post;
+use App\Models\Relatable;
+
+use App\Models\Post;
+
+use App\Models\Comment;
 
 
 /**
@@ -15,7 +17,8 @@ namespace App\Http\RequestHandlers ;
  *
  **/
 
- class CreateRelatedResourcesRequest {
+class CreateRelatedResourcesRequest {
+
 
     /**
      * @param string we can use this to set the parent table scope
@@ -47,7 +50,9 @@ namespace App\Http\RequestHandlers ;
      */
     private $child_resource = false ;
 
-
+    /**
+     * @param array add errors here
+     */
     private $errors = null ;
 
 
@@ -168,6 +173,9 @@ namespace App\Http\RequestHandlers ;
             case 'posts' :
                 $resource =  Post::byGuid($guid)->first();
             break;
+            case 'comments' :
+                $resource =  Comment::byGuid($guid)->first();
+            break;
         }
 
         return $resource ;
@@ -179,9 +187,9 @@ namespace App\Http\RequestHandlers ;
      */
     private function isRelated() {
 
-        return Relatable::where(['parent_guid'   => $this->parent_guid, 'child_guid'=> $this->child_guid])->first();
+        return Relatable::where(['parent_guid' => $this->parent_guid, 'child_guid' => $this->child_guid])->first();
 
     }
 
 
- } // end class
+} // end class
